@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import Link from "next/link";
+import { toast } from "sonner";
 import { AlertCircle } from "lucide-react";
 
 export default function SignupPage() {
@@ -149,6 +150,7 @@ export default function SignupPage() {
     } finally {
       setIsSubmitting(false);
     }
+    toast.success('Signup success')
   };
 
   return (

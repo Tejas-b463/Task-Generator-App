@@ -25,10 +25,17 @@ export const getTasks = async (req: Request, res: Response) => {
 
 // Create new task
 export const createTask = async (req: Request, res: Response) => {
-  const { title, userId } = req.body;
-  const result = await db.insert(tasks).values({ title, userId });
-  res.json(result);
+  const { title, userId, topic } = req.body;
+
+  const [insertedTask] = await db
+    .insert(tasks)
+    .values({ title, userId, completed: false, topic })
+    .returning(); 
+
+  res.json(insertedTask);
 };
+
+
 
 // Update task
 export const updateTask = async (req: Request, res: Response) => {

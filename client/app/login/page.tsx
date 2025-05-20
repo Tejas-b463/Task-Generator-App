@@ -17,6 +17,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from "sonner";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -76,6 +77,7 @@ export default function LoginPage() {
         setError("An error occurred. Please try again");
       }
     }
+    toast.success("Login success")
   };
 
   return (
